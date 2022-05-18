@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teste Fetch</title>
+</head>
+<body>
+    <script>
+        function mostrarSpritePokemon(numero) {
+            url = "https://pokeapi.co/api/v2/pokemon/";
+            fetch(url + numero)
+                .then(result => result.json())
+                .then(pokemon => {
+                    console.log(pokemon);
+                    const front_default = pokemon.sprites.front_default;
+                    const img = '<img src="${front_default}" alt="  Teste" />';
+                    document.body.insertAdjacentHTML('afterbegin', img);
+                });
+        }
+        mostrarSpritePokemon(15);
+    </script>
+</body>
+</html>
